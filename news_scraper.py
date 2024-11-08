@@ -1,22 +1,38 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
-# Making a GET request to the page
-r = requests.get('https://www.milehighreport.com/2024/11/7/24290075/broncos-vs-chiefs-3-keys-to-game')
+# Step 1: Initial request to get the list of articles
+url = "https://www.denverpost.com/sports/denver-broncos/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
 
-# Parsing the HTML, this is the raw content
-soup = BeautifulSoup(r.content, 'html.parser')
+# Step 2: Extract article URLs from the main page
+article_links = []
+for article in soup.find_all("article", class_="headline-only"):
+    link_tag = article.find("a", class_="article-title")
+    if link_tag and link_tag['href']:
+        article_links.append(link_tag['href'])
 
-# Find the main content div with class 'c-entry-content'
-main_content = soup.find('div', class_='c-entry-content')
 
-# If the div is found, extract and print the text from paragraphs and headings
-if main_content:
-    # Find all paragraphs and headings inside the div
-    content = main_content.find_all(['p', 'h2', 'h3', 'h4'])  # Add more tags if needed
+max_scrapes = 2
+scrape_counter = 0
+# Step 3: Scrape each individual article page for the full content
+for article_url in article_links:
+    article_response = requests.get(article_url)
+    article_soup = BeautifulSoup(article_response.text, "html.parser")
+
+    # Adjust the selector based on the structure of the article page
+    paragraphs = article_soup.find_all("p")
+    article_text = " ".join([p.get_text() for p in paragraphs])
+
+    print("================================================")
+    print("Article URL:", article_url)
+    print("Content:", article_text)
+    scrape_counter += 1
+    if scrape_counter == 2:
+        break
+   
     
-    # Loop through and print the text of each element
-    for element in content:
-        print(element.text.strip())  # Strip any extra whitespace
-else:
-    print("Content not found")
+    # Add a delay to avoid overwhelming the server
+    time.sleep(1)
