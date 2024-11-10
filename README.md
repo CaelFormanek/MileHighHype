@@ -9,4 +9,6 @@ nth time: source venv/bin/activate <br>
 to deactivate venv: deactivate <br>
 
 ### Web news sources
+Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/
+Nuggets: https://www.denverpost.com/sports/nba/denver-nuggets/
 

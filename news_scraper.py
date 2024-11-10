@@ -3,9 +3,8 @@ from bs4 import BeautifulSoup
 import time
 
 # function for scraping Broncos news
-def scrapeBroncosNews(numberOfArticles):
+def scrapeDenverPostNews(numberOfArticles, url):
     # Step 1: Initial request to get the list of articles
-    url = "https://www.denverpost.com/sports/denver-broncos/"
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -38,7 +37,10 @@ def scrapeBroncosNews(numberOfArticles):
         # Add a delay to avoid overwhelming the server
         time.sleep(1)
 
+
 # main block
 if __name__ == "__main__":
-    numberOfArticles = 1  # Set how many articles you want to scrape
-    scrapeBroncosNews(numberOfArticles)
+    scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nfl/denver-broncos/")
+    scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nba/denver-nuggets/")
+    
+
