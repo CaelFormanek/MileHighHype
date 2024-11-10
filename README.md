@@ -11,4 +11,6 @@ to deactivate venv: deactivate <br>
 ### Web news sources
 Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/
 Nuggets: https://www.denverpost.com/sports/nba/denver-nuggets/
+Avalanche: https://www.denverpost.com/sports/nhl/colorado-avalanche/
+Rockies: https://www.denverpost.com/sports/mlb/colorado-rockies/
 

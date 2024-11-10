@@ -7,10 +7,11 @@ def scrapeDenverPostNews(numberOfArticles, url):
     # Step 1: Initial request to get the list of articles
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
-
+    # print(soup)
+    # return
     # Step 2: Extract article URLs from the main page
     article_links = []
-    for article in soup.find_all("article", class_="headline-only"):
+    for article in soup.find_all("article", class_="headline-only",):
         link_tag = article.find("a", class_="article-title")
         if link_tag and link_tag['href']:
             article_links.append(link_tag['href'])
@@ -40,7 +41,7 @@ def scrapeDenverPostNews(numberOfArticles, url):
 
 # main block
 if __name__ == "__main__":
-    scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nfl/denver-broncos/")
-    scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nba/denver-nuggets/")
-    
-
+    # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nfl/denver-broncos/")
+    # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nba/denver-nuggets/")
+    # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nhl/colorado-avalanche/")
+    scrapeDenverPostNews(2, "https://www.denverpost.com/sports/mlb/colorado-rockies/")
