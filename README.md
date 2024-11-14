@@ -9,9 +9,8 @@ nth time: source venv/bin/activate <br>
 to deactivate venv: deactivate <br>
 
 ### Running the MongoDB Database
-to start mongo: brew services run mongodb/brew/mongodb-community@6.0 <br>
-once mongo is running, connect by running: mongosh <br>
-to stop mongo: brew services stop mongodb/brew/mongodb-community@6.0 <br>
+create a mongo image with Docker: docker pull mongo
+run a database called sportsnews: docker run --name sportsnews -d -p 27017:27017 mongo
 
 
 ### Web news sources
