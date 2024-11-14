@@ -60,8 +60,8 @@ def addNewsToDatabase(news, databaseURL):
 
     return result.inserted_id  # Return the ID of the inserted document
 
-# function to clear all data from a database collection
-def clearCollection(databaseURL, collectionName):
+# function to delete all data from a database collection
+def deleteCollection(databaseURL, collectionName):
     # Connect to the MongoDB database
     client = MongoClient(databaseURL)
 
@@ -82,6 +82,8 @@ if __name__ == "__main__":
     # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nba/denver-nuggets/")
     # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/nhl/colorado-avalanche/")
     # scrapeDenverPostNews(2, "https://www.denverpost.com/sports/mlb/colorado-rockies/")
+    
+    # testing add
     # news_data = {
     # 'title': 'Broncos Win Game',
     # 'date': '2024-11-13',
@@ -90,9 +92,9 @@ if __name__ == "__main__":
     # }
 
     # databaseURL = 'mongodb://localhost:27017'
-
     # news_id = addNewsToDatabase(news_data, databaseURL)
-
     # print(f"News inserted with ID: {news_id}")
+
+    # testing delete
     databaseURL = 'mongodb://localhost:27017'
-    clearCollection(databaseURL, 'news')
+    deleteCollection(databaseURL, 'news')
