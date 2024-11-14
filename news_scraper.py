@@ -25,7 +25,7 @@ def scrapeDenverPostNews(numberOfArticles, url):
         # Adjust the selector based on the structure of the article page
         paragraphs = article_soup.find_all("p")
         article_text = " ".join([p.get_text() for p in paragraphs])
-
+        
         print("======================================================================")
         print("Article URL:", article_url)
         print("Content:", article_text)

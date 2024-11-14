@@ -8,6 +8,12 @@ This app is a passion project built by Cael Formanek (me) to bring Colorado spor
 nth time: source venv/bin/activate <br>
 to deactivate venv: deactivate <br>
 
+### Running the MongoDB Database
+to start mongo: brew services run mongodb/brew/mongodb-community@6.0 <br>
+once mongo is running, connect by running: mongosh <br>
+to stop mongo: brew services stop mongodb/brew/mongodb-community@6.0 <br>
+
+
 ### Web news sources
 Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/
 Nuggets: https://www.denverpost.com/sports/nba/denver-nuggets/
