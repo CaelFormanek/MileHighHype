@@ -9,13 +9,13 @@ nth time: source venv/bin/activate <br>
 to deactivate venv: deactivate <br>
 
 ### Running the MongoDB Database
-create a mongo image with Docker: docker pull mongo
-run a database called sportsnews: docker run --name sportsnews -d -p 27017:27017 mongo
+create a mongo image with Docker: docker pull mongo <br>
+run a database called sportsnews: docker run --name sportsnews -d -p 27017:27017 mongo <br>
 
 
 ### Web news sources
-Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/
-Nuggets: https://www.denverpost.com/sports/nba/denver-nuggets/
-Avalanche: https://www.denverpost.com/sports/nhl/colorado-avalanche/
-Rockies: https://www.denverpost.com/sports/mlb/colorado-rockies/
+Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/ <br>
+Nuggets: https://www.denverpost.com/sports/nba/denver-nuggets/ <br>
+Avalanche: https://www.denverpost.com/sports/nhl/colorado-avalanche/ <br> 
+Rockies: https://www.denverpost.com/sports/mlb/colorado-rockies/ <br>
 
