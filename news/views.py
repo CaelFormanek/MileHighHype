@@ -19,6 +19,12 @@ class NewsAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)  # Return success response
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  # Return error if invalid data
 
+    # DELETE method - Delete all news articles
+    def delete(self, request):
+        News.objects.all().delete()  # Delete all news articles in the database
+        return Response({"detail": "All news articles have been deleted."}, status=status.HTTP_204_NO_CONTENT)
+
+
 class SingleNewsAPIView(APIView):
     # GET method - Retrieve a specific news article by ID
     def get(self, request, pk):

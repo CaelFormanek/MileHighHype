@@ -22,6 +22,7 @@ To quit: control+c
 
 ### Testing the API
 curl http://127.0.0.1:8000/api/news/ <br>
+curl -X DELETE http://127.0.0.1:8000/api/news/ <br>
 curl -X POST -H "Content-Type: application/json" -d '{
     "title": "Broncos Victory",
     "date": "2024-11-13",
@@ -36,6 +37,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 }' http://127.0.0.1:8000/api/news/1/ <br>
 curl -X DELETE http://127.0.0.1:8000/api/news/1/ <br>
 curl http://127.0.0.1:8000/api/news/1/ <br>
+
 
 
 
