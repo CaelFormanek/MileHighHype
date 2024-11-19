@@ -12,6 +12,33 @@ to deactivate venv: deactivate <br>
 create a mongo image with Docker: docker pull mongo <br>
 run a database called sportsnews: docker run --name sportsnews -d -p 27017:27017 mongo <br>
 
+### Managaing the API
+Before running 1st time/ On Changes: 
+python manage.py makemigrations <br>
+python manage.py migrate <br>
+
+To run: python manage.py runserver <br>
+To quit: control+c
+
+### Testing the API
+curl http://127.0.0.1:8000/api/news/ <br>
+curl -X POST -H "Content-Type: application/json" -d '{
+    "title": "Broncos Victory",
+    "date": "2024-11-13",
+    "content": "The Broncos secured a historic win...",
+    "team": "Broncos"
+}' http://127.0.0.1:8000/api/news/ <br>
+curl -X PUT -H "Content-Type: application/json" -d '{
+    "title": "Broncos Big Victory",
+    "date": "2024-11-14",
+    "content": "The Broncos secured a big win against rivals...",
+    "team": "Broncos"
+}' http://127.0.0.1:8000/api/news/1/ <br>
+curl -X DELETE http://127.0.0.1:8000/api/news/1/ <br>
+curl http://127.0.0.1:8000/api/news/1/ <br>
+
+
+
 
 ### Web news sources
 Broncos: https://www.denverpost.com/sports/nfl/denver-broncos/ <br>
