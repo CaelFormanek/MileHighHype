@@ -1,5 +1,6 @@
 import requests
 from news_scraper import scrapeDenverPostNews
+import re
 
 # Define the API URL
 api_url = "http://127.0.0.1:8000/api/news/"
@@ -27,13 +28,26 @@ def main():
         print(f"Scraping {team} news...")
         
         # Scrape one article for the team
-        articles = scrapeDenverPostNews(1, url)  # Scrape one article
+        articles = scrapeDenverPostNews(2, url)  # Scrape one article
         if articles:
+            # Clean the article content by removing unwanted text
+            clean_content = articles[1]
+
+            # Remove specific unwanted phrases
+            unwanted_phrases = [
+                "Digital Replica Edition",
+                "Sign up for Newsletters and Alerts",
+            ]
+            for phrase in unwanted_phrases:
+                print("removed " + phrase)
+                clean_content = clean_content.replace(phrase, '')
+
+
             # Prepare the data to post to the API
             news_data = {
-                'title': f"{team} Victory",  # Customize based on the article
-                'date': '2024-11-13',  # You could extract the date if available
-                'content': articles[0],  # The scraped article text
+                'title': f"{team} News",  # Customize based on the article
+                'date': '2024-11-21',  # You could extract the date if available
+                'content': clean_content,  # The scraped article text
                 'team': team
             }
             

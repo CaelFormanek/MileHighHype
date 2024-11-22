@@ -3,6 +3,11 @@
 ## Purpose
 This app is a passion project built by Cael Formanek (me) to bring Colorado sports into one place. Using web scraping and AI interpretation, the app is able to grab information from top Colorado sports news outlets and present them to the user. This is not meant for use by other customers, but is a way for me to get my news on my favorite teams conveniently.
 
+### TODO:
+1. Make it so main.py will replace current news entries with ones being scraped
+2. Create frontend
+3. Make script to replace news every 3 hours
+
 ### To get started
 1st time: source setup.sh <br>
 nth time: source venv/bin/activate <br>
@@ -12,7 +17,7 @@ to deactivate venv: deactivate <br>
 create a mongo image with Docker: docker pull mongo <br>
 run a database called sportsnews: docker run --name sportsnews -d -p 27017:27017 mongo <br>
 
-### Managaing the API
+### Managing the API
 Before running 1st time/ On Changes: 
 python manage.py makemigrations <br>
 python manage.py migrate <br>
